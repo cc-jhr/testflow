@@ -18,7 +18,7 @@ class AnyAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(obj) {
+                obj mustSatisfy {
                     it mustBeOfType String::class
                 }
             }
@@ -33,7 +33,7 @@ class AnyAssertionsTest {
             val obj = 12
 
             // when
-            assertThat(obj) {
+            obj mustSatisfy {
                 it mustBeOfType Int::class
             }
         }
@@ -49,7 +49,7 @@ class AnyAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(obj) {
+                obj mustSatisfy {
                     it mustNotBeOfType Int::class
                 }
             }
@@ -64,7 +64,7 @@ class AnyAssertionsTest {
             val obj = 12
 
             // when
-            assertThat(obj) {
+            obj mustSatisfy {
                 it mustNotBeOfType String::class
             }
         }
@@ -80,7 +80,7 @@ class AnyAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(obj) {
+                obj mustSatisfy {
                     it mustBeEqualTo 14
                 }
             }
@@ -95,7 +95,7 @@ class AnyAssertionsTest {
             val obj = 12
 
             // when
-            assertThat(obj) {
+            obj mustSatisfy {
                 it mustBeEqualTo 12
             }
         }
@@ -111,7 +111,7 @@ class AnyAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(obj) {
+                obj mustSatisfy {
                     it mustNotBeEqualTo 12
                 }
             }
@@ -126,7 +126,7 @@ class AnyAssertionsTest {
             val obj = 12
 
             // when
-            assertThat(obj) {
+            obj mustSatisfy {
                 it mustNotBeEqualTo 13
             }
         }
@@ -142,7 +142,7 @@ class AnyAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(obj) {
+                obj mustSatisfy {
                     it mustBeSameAs 12 to "content"
                 }
             }
@@ -158,7 +158,7 @@ class AnyAssertionsTest {
             val b = 12
 
             // when
-            assertThat(a) {
+            a mustSatisfy {
                 it mustBeSameAs b
             }
         }
@@ -169,7 +169,7 @@ class AnyAssertionsTest {
             val obj = 12 to "content"
 
             // when
-            assertThat(obj) {
+            obj mustSatisfy {
                 it mustBeSameAs obj
             }
         }
@@ -185,7 +185,7 @@ class AnyAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(obj) {
+                obj mustSatisfy {
                     it mustNotBeSameAs obj
                 }
             }
@@ -202,7 +202,7 @@ class AnyAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(a) {
+                a mustSatisfy {
                     it mustNotBeSameAs b
                 }
             }
@@ -217,7 +217,7 @@ class AnyAssertionsTest {
             val obj = 12 to "content"
 
             // when
-            assertThat(obj) {
+            obj mustSatisfy {
                 it mustNotBeSameAs 12 to "content"
             }
         }

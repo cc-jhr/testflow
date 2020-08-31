@@ -13,12 +13,12 @@ Origin of a test is the object itsef. The object must satisfy criteria
     }
 ```
 
-Various criteria can be described based on the type
+Various criteria can be described depending on the class type:
 ```kotlin
     @Test
     fun `usage test`() {
         12 mustSatisfy {
-            it mustBeOfType Int::class
+            it isGreaterThan 6
         }
     }
 ```
@@ -27,7 +27,7 @@ Nullability can be checked using additional adjectives:
 ```kotlin
     @Test
     fun `usage test`() {
-        val obj:  String? = null
+        val obj: String? = null
         
         obj mustSatisfy {
             it mustNotBe Null
@@ -56,20 +56,4 @@ Checking a parameter of a more complex object can be achieved using a nested `mu
         val anyObj: Any,
         val list: List<String>
     )
-```
-
-Alternatively starting a test with the well established `assertThat` is possible as well:
-
-```kotlin
-    @Test
-    fun `usage test`() {
-        assertThat(obj) {
-            it mustNotBe Null
-            it mustBeOfType MyObj::class
-
-            it.content.number mustSatisfy { number ->
-                number mustBeEqualTo 12
-            }
-        }
-    }
 ```

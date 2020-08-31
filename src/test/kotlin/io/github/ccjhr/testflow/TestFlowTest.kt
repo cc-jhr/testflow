@@ -18,7 +18,7 @@ internal class TestFlowTest {
             }
         }
 
-        assertThat(obj) {
+        obj mustSatisfy {
             it mustNotBe Null
             it mustBeOfType MyObj::class
 

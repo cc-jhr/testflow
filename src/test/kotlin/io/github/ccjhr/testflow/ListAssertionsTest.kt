@@ -20,7 +20,7 @@ internal class ListAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(list) {
+                list mustSatisfy {
                     it mustContain "world"
                 }
             }
@@ -35,7 +35,7 @@ internal class ListAssertionsTest {
             val list = listOf("List", "of", "words.")
 
             // when
-            assertThat(list) {
+            list mustSatisfy {
                 it mustContain "of"
             }
         }
@@ -51,7 +51,7 @@ internal class ListAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(list) {
+                list mustSatisfy {
                     it mustNotContain "of"
                 }
             }
@@ -66,7 +66,7 @@ internal class ListAssertionsTest {
             val list = listOf("List", "of", "words.")
 
             // when
-            assertThat(list) {
+            list mustSatisfy {
                 it mustNotContain "world"
             }
         }

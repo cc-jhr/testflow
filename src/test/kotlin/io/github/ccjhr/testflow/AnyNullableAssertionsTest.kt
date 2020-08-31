@@ -18,7 +18,7 @@ internal class AnyNullableAssertionsTest {
 
             // when
             val result = assertThrows<AssertionError> {
-                assertThat(obj) {
+                obj mustSatisfy {
                     it mustNotBe Null
                 }
             }
@@ -33,7 +33,7 @@ internal class AnyNullableAssertionsTest {
             val obj: String? = "test"
 
             // when
-            assertThat(obj) {
+            obj mustSatisfy {
                 it mustNotBe Null
             }
         }

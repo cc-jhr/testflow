@@ -22,7 +22,7 @@ internal class StringNullableAssertionsTest {
 
                 // when
                 val result = assertThrows<AssertionError> {
-                    assertThat(string) {
+                    string mustSatisfy {
                         it mustNotBe Empty
                     }
                 }
@@ -38,7 +38,7 @@ internal class StringNullableAssertionsTest {
 
                 // when
                 val result = assertThrows<AssertionError> {
-                    assertThat(string) {
+                    string mustSatisfy {
                         it mustNotBe Empty
                     }
                 }
@@ -53,7 +53,7 @@ internal class StringNullableAssertionsTest {
                 val string: String? = "test"
 
                 // when
-                assertThat(string) {
+                string mustSatisfy {
                     it mustNotBe Empty
                 }
             }
@@ -69,7 +69,7 @@ internal class StringNullableAssertionsTest {
 
                 // when
                 val result = assertThrows<AssertionError> {
-                    assertThat(string) {
+                    string mustSatisfy {
                         it mustNotBe Blank
                     }
                 }
@@ -85,7 +85,7 @@ internal class StringNullableAssertionsTest {
 
                 // when
                 val result = assertThrows<AssertionError> {
-                    assertThat(string) {
+                    string mustSatisfy {
                         it mustNotBe Blank
                     }
                 }
@@ -100,7 +100,7 @@ internal class StringNullableAssertionsTest {
                 val string: String? = "test"
 
                 // when
-                assertThat(string) {
+                string mustSatisfy {
                     it mustNotBe Blank
                 }
             }
