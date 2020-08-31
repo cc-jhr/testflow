@@ -1,3 +1,4 @@
+![Build](https://github.com/cc-jhr/testflow/workflows/Build/badge.svg)
 # TestFlow
 
 A small test creating an assertion/matcher with infix functions.
