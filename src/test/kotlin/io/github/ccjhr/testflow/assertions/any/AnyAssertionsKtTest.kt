@@ -1,5 +1,5 @@
-package io.github.ccjhr.testflow
-
+package io.github.ccjhr.testflow.assertions.any
+import io.github.ccjhr.testflow.mustSatisfy
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

@@ -1,7 +1,7 @@
-package io.github.ccjhr.testflow
+package io.github.ccjhr.testflow.assertions.string
 
-import io.github.ccjhr.testflow.StringNullableAssertionAdjective.Blank
-import io.github.ccjhr.testflow.StringNullableAssertionAdjective.Empty
+import io.github.ccjhr.testflow.assertions.string.StringNullableAssertionAdjective.*
+import io.github.ccjhr.testflow.mustSatisfy
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -28,7 +28,7 @@ internal class StringNullableAssertionsTest {
                 }
 
                 // then
-                assertEquals("Expecting given String not to be <null>, but it is.", result.message)
+                assertEquals("Expecting given String not to be <null> or <empty>, but was <empty>.", result.message)
             }
 
             @Test
@@ -44,7 +44,7 @@ internal class StringNullableAssertionsTest {
                 }
 
                 // then
-                assertEquals("Expecting given String not to be null or empty, but was empty.", result.message)
+                assertEquals("Expecting given String not to be <null> or <empty>, but was <empty>.", result.message)
             }
 
             @Test
@@ -75,7 +75,7 @@ internal class StringNullableAssertionsTest {
                 }
 
                 // then
-                assertEquals("Expecting given String not to be <null>, but it is.", result.message)
+                assertEquals("Expecting given String not to be <null> or <blank>, but was <blank>.", result.message)
             }
 
             @Test
@@ -91,7 +91,7 @@ internal class StringNullableAssertionsTest {
                 }
 
                 // then
-                assertEquals("Expecting given String not to be null or blank, but was blank.", result.message)
+                assertEquals("Expecting given String not to be <null> or <blank>, but was <blank>.", result.message)
             }
 
             @Test
@@ -102,6 +102,37 @@ internal class StringNullableAssertionsTest {
                 // when
                 string mustSatisfy {
                     it mustNotBe Blank
+                }
+            }
+        }
+
+        @Nested
+        inner class MustNotBeNullTests {
+
+            @Test
+            fun `MustNotBe Null fails, because string is null`() {
+                // given
+                val string: String? = null
+
+                // when
+                val result = assertThrows<AssertionError> {
+                    string mustSatisfy {
+                        it mustNotBe Null
+                    }
+                }
+
+                // then
+                assertEquals("Expecting given String not to be <null>, but it is.", result.message)
+            }
+
+            @Test
+            fun `MustNotBe Null succeeds`() {
+                // given
+                val string: String? = "test"
+
+                // when
+                string mustSatisfy {
+                    it mustNotBe Null
                 }
             }
         }

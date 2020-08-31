@@ -1,6 +1,9 @@
 package io.github.ccjhr.testflow
 
-import io.github.ccjhr.testflow.AnyNullableAssertionAdjective.Null
+import io.github.ccjhr.testflow.assertions.any.AnyNullableAssertionAdjective.Null
+import io.github.ccjhr.testflow.assertions.any.mustNotBe
+import io.github.ccjhr.testflow.assertions.any.mustBeEqualTo
+import io.github.ccjhr.testflow.assertions.any.mustBeOfType
 import org.junit.jupiter.api.Test
 
 internal class TestFlowTest {
