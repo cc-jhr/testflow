@@ -11,3 +11,5 @@ infix fun AssertionContext<Int>.isGreaterThan(obj: Int) {
         fail("Expecting <${this.content}> to be greater than <$obj>, but it's not.")
     }
 }
+
+// TODO: inverse func

@@ -1,4 +1,4 @@
-package io.github.ccjhr.testflow.assertions.list
+package io.github.ccjhr.testflow.assertions.collection
 
 import io.github.ccjhr.testflow.mustSatisfy
 import org.junit.jupiter.api.Nested
