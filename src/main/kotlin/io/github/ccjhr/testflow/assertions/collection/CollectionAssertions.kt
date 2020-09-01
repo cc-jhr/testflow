@@ -8,7 +8,7 @@ import kotlin.test.fail
  * @since 1.0.0
  * @see mustNotContain
  */
-infix fun <C: Collection<T>?, T> AssertionContext<C>.mustContain(obj: T) {
+inline infix fun <reified T, reified C: Collection<T>?> AssertionContext<C>.mustContain(obj: T) {
     ensureNotNull(this.content)
     if (!this.content.contains(obj)) {
         fail("Expecting <${this.content}> to be contain <$obj>, but it doesn't.")
@@ -19,7 +19,7 @@ infix fun <C: Collection<T>?, T> AssertionContext<C>.mustContain(obj: T) {
  * @since 1.0.0
  * @see mustContain
  */
-infix fun <C: Collection<T>?, T> AssertionContext<C>.mustNotContain(obj: T) {
+inline infix fun <reified T, reified C: Collection<T>?> AssertionContext<C>.mustNotContain(obj: T) {
     ensureNotNull(this.content)
     if (this.content.contains(obj)) {
         fail("Expecting <${this.content}> to NOT contain <$obj>, but it does.")

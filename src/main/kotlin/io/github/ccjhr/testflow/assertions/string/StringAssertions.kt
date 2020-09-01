@@ -7,7 +7,7 @@ import kotlin.test.fail
 /**
  * @since 1.0.0
  */
-infix fun <T: String?> AssertionContext<T>.mustNotBe(adjective: StringNullableAssertionAdjective) {
+inline infix fun <reified T: String?> AssertionContext<T>.mustNotBe(adjective: StringNullableAssertionAdjective) {
     val obj = this.content
 
     when(adjective) {
@@ -17,7 +17,7 @@ infix fun <T: String?> AssertionContext<T>.mustNotBe(adjective: StringNullableAs
     }
 }
 
-infix fun <T: String?> AssertionContext<T>.mustHaveLength(expectedLength: Int) {
+inline infix fun <reified T: String?> AssertionContext<T>.mustHaveLength(expectedLength: Int) {
     requireNotNull(this.content)
     if (this.content.length != expectedLength) fail("String of length <${this.content.length}> ")
 }
