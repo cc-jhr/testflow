@@ -2,14 +2,30 @@ package io.github.ccjhr.testflow.assertions.collection
 
 import io.github.ccjhr.testflow.mustSatisfy
 import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class ListAssertionsTest {
 
     @Nested
     inner class MustContainTests {
+
+        @Test
+        fun `mustContain throws exception if the object is null`() {
+            // given
+            val obj: Collection<String>? = null
+
+            // when
+            val result = assertThrows<IllegalArgumentException> {
+                obj mustSatisfy {
+                    it mustContain "test"
+                }
+            }
+
+            // then
+            assertEquals("Object for assertion is null.", result.message)
+        }
 
         @Test
         fun `mustContain fails`() {
@@ -41,6 +57,22 @@ internal class ListAssertionsTest {
 
     @Nested
     inner class MustNotContainTests {
+
+        @Test
+        fun `mustNotContain throws exception if the object is null`() {
+            // given
+            val obj: Collection<String>? = null
+
+            // when
+            val result = assertThrows<IllegalArgumentException> {
+                obj mustSatisfy {
+                    it mustNotContain "test"
+                }
+            }
+
+            // then
+            assertEquals("Object for assertion is null.", result.message)
+        }
 
         @Test
         fun `mustNotContain fails`() {

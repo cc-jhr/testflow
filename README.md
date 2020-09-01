@@ -40,7 +40,7 @@ Checking a parameter of a more complex object can be achieved using a nested `mu
 ```kotlin
     @Test
     fun `usage test`() {
-        val obj: MyObj = MyObj(12, "", emptyList())
+        val obj = MyObj(12, "", emptyList())
 
         obj mustSatisfy {
             it mustNotBe Null
@@ -52,7 +52,7 @@ Checking a parameter of a more complex object can be achieved using a nested `mu
         }
     }
 
-    data class `MyObj`(
+    data class MyObj(
         val number: Int,
         val anyObj: Any,
         val list: List<String>

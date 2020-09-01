@@ -17,6 +17,11 @@ infix fun <T: String?> AssertionContext<T>.mustNotBe(adjective: StringNullableAs
     }
 }
 
+infix fun <T: String?> AssertionContext<T>.mustHaveLength(expectedLength: Int) {
+    requireNotNull(this.content)
+    if (this.content.length != expectedLength) fail("String of length <${this.content.length}> ")
+}
+
 //TODO: inverse func
 
 enum class StringNullableAssertionAdjective {

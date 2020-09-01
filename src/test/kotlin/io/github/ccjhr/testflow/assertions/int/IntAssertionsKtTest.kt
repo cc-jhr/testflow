@@ -12,6 +12,22 @@ class IntAssertionsKtTest {
     inner class IsGreaterThanTests {
 
         @Test
+        fun `isGreaterThan throws exception if the object is null`() {
+            // given
+            val obj: Int? = null
+
+            // when
+            val result = assertThrows<IllegalArgumentException> {
+                obj mustSatisfy {
+                    it isGreaterThan 12
+                }
+            }
+
+            // then
+            assertEquals("Object for assertion is null.", result.message)
+        }
+
+        @Test
         fun `isGreaterThan fails for equal value`() {
             // given
             val obj = 12
@@ -57,6 +73,22 @@ class IntAssertionsKtTest {
 
     @Nested
     inner class IsLessThanTests {
+
+        @Test
+        fun `isLessThan throws exception if the object is null`() {
+            // given
+            val obj: Int? = null
+
+            // when
+            val result = assertThrows<IllegalArgumentException> {
+                obj mustSatisfy {
+                    it isLessThan 12
+                }
+            }
+
+            // then
+            assertEquals("Object for assertion is null.", result.message)
+        }
 
         @Test
         fun `isLessThan fails for equal value`() {
